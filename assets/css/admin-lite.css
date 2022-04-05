@@ -1,0 +1,767 @@
+.my_backup-html {
+	background-color: #F4F4F4;
+}
+.my_backup #wpbody {
+	background: #F4F4F4;
+	-webkit-font-smoothing: antialiased !important;
+}
+.my_backup #wpbody * {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.my_backup #container {
+	margin-top: 30px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1.5em;
+	color: #777771;
+	letter-spacing: -0.015em;
+}
+.my_backup h1,
+.my_backup h2,
+.my_backup h3,
+.my_backup h4,
+.my_backup h5,
+.my_backup h6 {
+	display: block;
+	padding: 0;
+	line-height: 1em;
+	color: #777771;
+}
+.my_backup h1,
+.my_backup h2,
+.my_backup h3 {
+	font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+	font-weight: 400;
+	max-width: 900px;
+	text-transform: uppercase;
+}
+.my_backup h4,
+.my_backup h5,
+.my_backup h6 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+}
+.my_backup h1 {
+	font-size: 60px;
+	font-weight: 700;
+}
+.my_backup h2 {
+	font-size: 30px !important;
+	text-transform: none;
+	margin-bottom: 20px !important;
+}
+.my_backup h3 {
+	font-size: 20px;
+}
+.my_backup h4 {
+	font-size: 18px;
+	text-transform: uppercase;
+}
+.my_backup h5 {
+	font-size: 36px;
+}
+.my_backup h6 {
+	font-size: 14px;
+	font-weight: 400;
+}
+.my_backup p {
+	display: block;
+	margin: 0.5em 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 29px;
+	color: #777771;
+}
+.my_backup p small {
+	font-size: 12.5px;
+	line-height: 22px;
+	display: inline-block;
+	color: #555550;
+}
+.my_backup p big {
+	font-size: 18px;
+	line-height: 28px;
+	display: inline-block;
+	font-weight: 400;
+	color: #888882;
+}
+.my_backup p:first-child {
+	margin-top: 0;
+}
+.my_backup p:last-child {
+	margin-bottom: 0;
+}
+.my_backup .notice p {
+	margin:5px 0;
+}
+.my_backup dfn {
+	font-style: normal;
+	font-weight: normal;
+	border-bottom: 1px dotted #999;
+}
+.my_backup code,
+.my_backup pre {
+	font: 400 13px/15px Consolas, Monaco, monospace;
+	border-left: 2px solid rgba(0,0,0,0.2);
+	padding: 5px 10px 5px 10px;
+	background: rgba(0,0,0,0.05);
+	border-radius: 3px;
+	color: #555;
+	margin: 1em 0;
+	overflow: auto;
+	vertical-align: middle;
+}
+.my_backup code {
+	display: inline-block;
+	margin: 0;
+}
+#wpfooter {
+	display: none;
+}
+.my_backup b,
+.my_backup strong {
+	font-weight: 500;
+}
+.my_backup a {
+	text-decoration: none;
+	color: #19B4CF;
+}
+.my_backup a:active,
+.my_backup a:focus,
+.my_backup a:hover {
+	color: #477B92;
+}
+.my_backup a.disabled,
+.my_backup a.disabled:active,
+.my_backup a.disabled:hover,
+.my_backup a.disabled:focus {
+	color: 788084;
+	cursor: default;
+}
+
+/* ****************************************************************************
+* 2. ELEMENT STATES
+*/
+.my_backup .block {
+	display: block;
+	width: 100%;
+	float: none;
+}
+
+.my_backup .float-r {
+	float: right;
+}
+.my_backup .float-l {
+	float: left;
+}
+.my_backup .pointer {
+	cursor: pointer;
+}
+
+/* ****************************************************************************
+* 5. ELEMENT: LIST-TABLE
+*/
+.my_backup .list-table {
+	border: 0;
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.my_backup .list-table > thead > tr > th {
+	font-weight: bold;
+	text-transform: uppercase;
+	background:#efefef;
+	text-align: left;
+	padding: 8px 10px;
+	cursor: default;
+}
+.my_backup .list-table > thead > tr > th:first-child {
+	padding-left: 10px;
+}
+.my_backup .list-table > thead > tr > th:last-child {
+	padding-right: 0;
+}
+.my_backup .list-table > tbody > tr > td {
+	padding: 10px;
+	border-top: 1px solid #EEE;
+	background: #fff;
+	cursor: default;
+	position: relative;
+	z-index: 1;
+}
+.my_backup .list-table > tbody > tr:last-child > td {
+	border-bottom: 1px solid transparent;
+}
+.my_backup .list-table > tbody > tr > td:first-child {
+	padding-left: 10px;
+}
+.my_backup .list-table > tbody > tr > td:last-child {
+	/* padding-right: 0; */
+}
+.my_backup .list-table.hover-effect > tbody > tr:hover > td:first-child:after,
+.my_backup .list-table.hover-effect > tbody > tr:hover > td:last-child:after {
+	content: '';
+	position: absolute;
+	left: -30px;
+	top: -1px;
+	bottom: -1px;
+	width: 30px;
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
+	background: #FBFBFB;
+}
+.my_backup .list-table.hover-effect > tbody > tr:hover > td:last-child:after {
+	right: -30px;
+	left: auto;
+}
+.my_backup .list-table.hover-effect > tbody > tr:hover {
+	background: #FBFBFB;
+}
+.my_backup .list-table.hover-effect > tbody > tr:hover > td {
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
+	z-index: 2;
+}
+
+.my_backup .list-table td.enabled {
+	background: #CBE86B;
+}
+
+/* ****************************************************************************
+* 6. ELEMENT: GRID
+*/
+.my_backup .row,
+.my_backup .row-sep {
+	clear: both;
+	margin: 0 0 0 0;
+	position: relative;
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+.my_backup .row:after,
+.my_backup .row-sep:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.my_backup .row-sep {
+	height: 1px;
+	margin-bottom: 30px;
+	width: auto;
+	display: block;
+}
+.my_backup .row-sep:before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-bottom: 1px solid #E5E5E5;
+}
+.my_backup .row-sep .button {
+	margin: 20px auto 0;
+	display: block;
+	width: 480px;
+	text-align: center;
+	position: relative;
+	top: -20px;
+	position: relative;
+	z-index: 1;
+	background: #FFF;
+}
+.my_backup .row-sep .button.button-small {
+	top: -14px;
+}
+.my_backup .row-sep .button:before,
+.my_backup .row-sep .button:after {
+	content: '';
+	position: absolute;
+	z-index: 0;
+	left: -30px;
+	width: 30px;
+	top: 0;
+	bottom: 0;
+	background: #FFF;
+}
+.my_backup .row-sep .button:after {
+	right: -30px;
+	left: auto;
+}
+.my_backup .row-space {
+	margin-bottom: 30px;
+}
+.my_backup .row .col-third,
+.my_backup .row .col-two-third,
+.my_backup .row .col-half {
+	display: table-cell;
+	padding: 0 15px 0 15px;
+	position: relative;
+	vertical-align: top;
+}
+.my_backup .row .col-third {
+	width: 33.3333%;
+}
+.my_backup .row .col-two-third {
+	width: 66.6666%;
+}
+.my_backup .row .col-half {
+	width: 50%;
+}
+.my_backup .row .col-third:first-child,
+.my_backup .row .col-two-third:first-child,
+.my_backup .row .col-half:first-child {
+	padding-left: 0;
+}
+.my_backup .row .col-third:last-child,
+.my_backup .row .col-two-third:last-child,
+.my_backup .row .col-half:last-child {
+	padding-right: 0;
+}
+
+/* ****************************************************************************
+* 13. ELEMENT: FORMS
+*/
+.my_backup label {
+	display: block;
+	padding: 7px 10px;
+	font-weight: 500;
+	font-size: 15px;
+	margin: 0 0 4px;
+	color: #555;
+}
+.my_backup label.inline-label {
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	font-weight: inherit;
+	font-size: inherit;
+}
+.my_backup form > div {
+	padding-top: 5px;
+}
+.my_backup form > div:first-child,
+.my_backup form > div.buttons {
+	padding-top: 0;
+}
+
+.my_backup .input, .my_backup input[type="text"], .my_backup input[type="email"], .my_backup input[type="search"], .my_backup input[type="password"], .my_backup select, .my_backup textarea {
+    color: #999;
+    display: block;
+    font: 500 15px/25px;
+    width: 100%;
+    max-width: 100%;
+    padding: 7px 15px 6px;
+    margin: 0px 0px 15px 0px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    border-radius: 4px;
+    box-shadow: none;
+    transition-property: background, color, border-color;
+    transition-duration: 0.3s;
+}
+
+.is-dismissible > button.notice-dismiss {
+	background: #fff !important;
+}
+
+.white-panel {
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0 2px 0 #EAEAEA;
+    margin: 0 0 30px;
+}
+
+.white-panel .box-title {
+    height: 60px;
+    
+    border-bottom: 1px solid #EAEAEA;
+    
+}
+
+* ****************************************************************************
+* 12. ELEMENT: BUTTONS
+*/
+.my_backup button:not(.wph-button):not(#collapse-button):focus,
+.my_backup .button:focus {
+	outline-color: transparent;
+	outline-style: none;
+	border: 0;
+	box-shadow: none;
+}
+.my_backup button:not(.wph-button):not(#collapse-button),
+.my_backup .button {
+	background: #00ACCA;
+	color: #FFF;
+	text-transform: uppercase;
+	padding: 11px 20px 9px;
+	height: auto;
+	display: inline-block;
+	margin: 0;
+	border: 0;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	cursor: pointer;
+	box-shadow: none;
+	-moz-transition: color 0.3s, opacity 0.3s;
+	transition: color 0.3s, opacity 0.3s;
+	text-shadow: none;
+}
+.my_backup button:not(.wph-button):not(#collapse-button) + button:not(.wph-button):not(#collapse-button),
+.my_backup .button + button:not(.wph-button):not(#collapse-button),
+.my_backup button:not(.wph-button):not(#collapse-button) + .button,
+.my_backup .button + .button,
+.my_backup a + button:not(.wph-button):not(#collapse-button),
+.my_backup a + .button {
+	margin-left: 10px;
+}
+.my_backup button:hover:not(:focus):not(:active):not(.wph-button):not(#collapse-button):not([tooltip]),
+.my_backup .button:hover:not(:focus):not(:active):not(.wph-button):not(#collapse-button):not([tooltip]) {
+	background-color: #0093B1;
+	color: #FFF;
+	box-shadow: none;
+}
+/* http://www.colorzilla.com/gradient-editor/#0082a1+0,008fae+100 */
+.my_backup button:active,
+.my_backup button:focus,
+.my_backup .button:active,
+.my_backup .button:focus {
+	color: #FFF;
+	box-shadow: none;
+	background: #0082a1;
+	background: -moz-linear-gradient(top, #0082a1 0%, #008fae 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0082a1), color-stop(100%,#008fae));
+	background: -webkit-linear-gradient(top, #0082a1 0%,#008fae 100%);
+	background: -o-linear-gradient(top, #0082a1 0%,#008fae 100%);
+	background: -ms-linear-gradient(top, #0082a1 0%,#008fae 100%);
+	background: linear-gradient(to bottom, #0082a1 0%,#008fae 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0082a1', endColorstr='#008fae',GradientType=0 );
+}
+.my_backup a.disabled,
+.my_backup button.disabled,
+.my_backup .close.disabled,
+.my_backup .button.disabled {
+	/* Do not handle click events while disabled */
+	pointer-events: none;
+}
+/* Variation: Green button */
+.my_backup .button-green {
+	background: #1ABC9C;
+}
+.my_backup .button-green:hover:not(:focus):not(:active) {
+	background: #148F77;
+}
+/* http://www.colorzilla.com/gradient-editor/#0a6550+0,0e9272+100 */
+.my_backup .button-green:active,
+.my_backup .button-green:focus {
+	color: #FFF;
+	background: #0a6550;
+	background: -moz-linear-gradient(top,  #0a6550 0%, #0e9272 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0a6550), color-stop(100%,#0e9272));
+	background: -webkit-linear-gradient(top,  #0a6550 0%,#0e9272 100%);
+	background: -o-linear-gradient(top,  #0a6550 0%,#0e9272 100%);
+	background: -ms-linear-gradient(top,  #0a6550 0%,#0e9272 100%);
+	background: linear-gradient(to bottom,  #0a6550 0%,#0e9272 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0a6550', endColorstr='#0e9272',GradientType=0 );
+}
+/* Variation: Secondary Button */
+.my_backup .button-secondary {
+	background: transparent;
+	color: #00ACCA;
+	box-shadow: 0 0 0 2px #00ACCA inset;
+}
+/* Variation: Red Button */
+.my_backup .button-red {
+	background: transparent;
+	color: #fd6e70;
+	box-shadow: 0 0 0 2px #fd6e70 inset;
+}
+.my_backup .button-red:hover:not(:focus):not(:active) {
+	background: #fd6e70;
+}
+/* http://www.colorzilla.com/gradient-editor/#E24A4C+0,fd6e70+100 */
+.my_backup .button-red:active,
+.my_backup .button-red:focus {
+	color: #FFFFFF;
+	box-shadow: 0 0 0 1px #e24a4c inset;
+	background: #e24a4c;
+	background: -moz-linear-gradient(top,  #e24a4c 0%, #fd6e70 100%);
+	background: -webkit-linear-gradient(top,  #e24a4c 0%,#fd6e70 100%);
+	background: linear-gradient(to bottom,  #e24a4c 0%,#fd6e70 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e24a4c', endColorstr='#fd6e70',GradientType=0 );
+}
+/* Variation: Grey */
+.my_backup .button-grey {
+	background: #AEAEAE;
+}
+.my_backup .button-grey:hover:not(:focus):not(:active) {
+	background: #9E9E9E;
+}
+/* http://www.colorzilla.com/gradient-editor/#8e8e8e+0,9e9e9e+100 */
+.my_backup .button-grey:active,
+.my_backup .button-grey:focus {
+	color: #FFFFFF;
+	box-shadow: 0 0 0 1px #D8D8D8 inset;
+	background: #8e8e8e;
+	background: -moz-linear-gradient(top,  #8e8e8e 0%, #9e9e9e 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8e8e8e), color-stop(100%,#9e9e9e));
+	background: -webkit-linear-gradient(top,  #8e8e8e 0%,#9e9e9e 100%);
+	background: -o-linear-gradient(top,  #8e8e8e 0%,#9e9e9e 100%);
+	background: -ms-linear-gradient(top,  #8e8e8e 0%,#9e9e9e 100%);
+	background: linear-gradient(to bottom,  #8e8e8e 0%,#9e9e9e 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8e8e8e', endColorstr='#9e9e9e',GradientType=0 );
+}
+/* Variation: Yellow */
+.my_backup .button-yellow {
+	background: #FDCE43;
+}
+.my_backup .button-yellow:hover:not(:focus):not(:active) {
+	background: #E6BB3B;
+}
+/* http://www.colorzilla.com/gradient-editor/#E6BB3B+0,FDCE43+100 */
+.my_backup .button-yellow:active,
+.my_backup .button-yellow:focus {
+	color: #FFFFFF;
+	box-shadow: 0 0 0 1px #d6a719 inset;
+	background: #d6a719;
+	background: -moz-linear-gradient(top,  #d6a719 0%, #e6bb3b 100%);
+	background: -webkit-linear-gradient(top,  #d6a719 0%,#e6bb3b 100%);
+	background: linear-gradient(to bottom,  #d6a719 0%,#e6bb3b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6a719', endColorstr='#e6bb3b',GradientType=0 );
+}
+/* Variation: Light */
+.my_backup .button-light {
+	background: transparent;
+	color: #777771;
+	box-shadow: 0 0 0 1px #E3E3E3 inset;
+}
+/* http://www.colorzilla.com/gradient-editor/#f4f4f4+0,e8e8e8+100 */
+.my_backup .button-light:hover:not(:focus):not(:active) {
+	color: #555;
+	box-shadow: 0 0 0 1px #D8D8D8 inset;
+	background: #f1f1f1;
+}
+/* http://www.colorzilla.com/gradient-editor/#d0d0d0+0,f4f4f4+100 */
+.my_backup .button-light:active,
+.my_backup .button-light:focus {
+	color: #444;
+	box-shadow: 0 0 0 1px #D0D0D0 inset;
+	background: #d8d8d8;
+	background: -moz-linear-gradient(top,  #d8d8d8 0%, #f4f4f4 100%);
+	background: -webkit-linear-gradient(top,  #d8d8d8 0%,#f4f4f4 100%);
+	background: linear-gradient(to bottom,  #d8d8d8 0%,#f4f4f4 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d8d8', endColorstr='#f4f4f4',GradientType=0 );
+}
+/* Variation: Light */
+.my_backup .button-deactivated,
+.my_backup .button-deactivated:hover:not(:focus):not(:active),
+.my_backup .button-deactivated:active,
+.my_backup .button-deactivated:focus {
+	color: #AAA;
+	box-shadow: 0 0 0 1px #F3F3F3 inset;
+	background: #F8F8F8;
+}
+/* Variation: Text button */
+.my_backup .button-text {
+	background: transparent;
+	color: #777771;
+	box-shadow: none;
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+.my_backup .button-text:hover:not(:focus):not(:active) {
+	color: #0093B1;
+	box-shadow: none;
+	background: transparent;
+}
+/* http://www.colorzilla.com/gradient-editor/#e8e8e8+0,f4f4f4+100 */
+.my_backup .button-text:active,
+.my_backup .button-text:focus {
+	color: #0093B1;
+	background: transparent;
+	box-shadow: none;
+}
+.my_backup .button.button-text.button-small,
+.my_backup .button.button-text.button-big {
+	padding-left: 0;
+	padding-right: 0;
+}
+.my_backup .button-text.disabled,
+.my_backup .button-text:disabled {
+	background: transparent !important;
+}
+/* Variation: Small button */
+.my_backup .button.button-small {
+	font: 500 14px/20px 'Roboto Condensed';
+	padding: 6px 12px 4px;
+	height: auto;
+}
+/* Variation: Big button */
+.my_backup .button.button-big {
+	padding: 18px 24px 17px;
+	height: auto;
+}
+/* Variation: CTA (normal) */
+.my_backup .button.button-cta {
+	box-shadow: 0px 3px 0px 0px #0093B1;
+}
+.my_backup .button.button-cta:hover:not(:focus):not(:active),
+.my_backup .button.button-cta:active,
+.my_backup .button.button-cta:focus {
+	box-shadow: 0px 3px 0px 0px #007391;
+}
+/* Variation: CTA (green) */
+.my_backup .button.button-green.button-cta {
+	box-shadow: 0px 3px 0px 0px #1F947B;
+}
+.my_backup .button.button-green.button-cta:hover:not(:focus):not(:active),
+.my_backup .button.button-green.button-cta:active,
+.my_backup .button.button-green.button-cta:focus {
+	box-shadow: 0px 3px 0px 0px #00745B;
+}
+/* Restore the default WP dismiss button */
+.my_backup .notice-dismiss,
+.my_backup .notice-dismiss:hover:not(:focus):not(:active),
+.my_backup .notice-dismiss:hover,
+.my_backup .notice-dismiss:focus,
+.my_backup .notice-dismiss:active {
+	border: none;
+	margin: 0;
+	padding: 9px;
+	background: none;
+	color: #b4b9be;
+	cursor: pointer;
+}
+
+/* ****************************************************************************
+* 5. LOADING
+*/
+
+.loading-off {
+	display:none;
+}
+
+.loading {
+	position: fixed;
+	z-index: 999;
+	height: 2em;
+	width: 2em;
+	overflow: show;
+	margin: auto;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+	content: '';
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+	/* hide "loading..." text */
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+
+.loading:not(:required):after {
+	content: '';
+	display: block;
+	font-size: 10px;
+	width: 1em;
+	height: 1em;
+	margin-top: -0.5em;
+	-webkit-animation: spinner 1500ms infinite linear;
+	-moz-animation: spinner 1500ms infinite linear;
+	-ms-animation: spinner 1500ms infinite linear;
+	-o-animation: spinner 1500ms infinite linear;
+	animation: spinner 1500ms infinite linear;
+	border-radius: 0.5em;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+	box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-moz-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-o-keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@keyframes spinner {
+	0% {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
