@@ -147,7 +147,7 @@ if ( !class_exists( 'MyBackupClass' ) ) {
     * @return [type] [description]
     */
     function my_backup_page(){ ?>
-      <div class="loading loading-off">Loading&#8230;</div>
+      <div class="loader loader-off">Loading&#8230;</div>
       <div class="wrap">
         <h1>MyBackup</h1>
         <div class="row">

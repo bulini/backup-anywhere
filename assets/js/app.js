@@ -13,12 +13,13 @@
 			confirmButtonText: 'Si, Procedi!'
 		  }).then((result) => {
 			if (result.isConfirmed) {
+        $('.loader').removeClass('loader-off');
 			  $.ajax({
 				url : app_data.ajaxurl,
 				type : 'post',
 				data : {action: 'zip_folders'},
 				success : function( response ) {
-				 //$('#load').addClass('loader-removed');
+          $('.loader').addClass('loader-off');
 				  console.log(response);
 				  Swal.fire(
 					'Backup finito!',

@@ -643,11 +643,11 @@
 * 5. LOADING
 */
 
-.loading-off {
+.loader-off {
 	display:none;
 }
 
-.loading {
+.loader {
 	position: fixed;
 	z-index: 999;
 	height: 2em;
@@ -661,7 +661,7 @@
 }
 
 /* Transparent Overlay */
-.loading:before {
+.loader:before {
 	content: '';
 	display: block;
 	position: fixed;
@@ -673,7 +673,7 @@
 }
 
 /* :not(:required) hides these rules from IE9 and below */
-.loading:not(:required) {
+.loader:not(:required) {
 	/* hide "loading..." text */
 	font: 0/0 a;
 	color: transparent;
@@ -682,7 +682,7 @@
 	border: 0;
 }
 
-.loading:not(:required):after {
+.loader:not(:required):after {
 	content: '';
 	display: block;
 	font-size: 10px;
