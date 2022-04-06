@@ -6,4 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'FtpClient' => array($vendorDir . '/nicolab/php-ftp-client/src'),
 );

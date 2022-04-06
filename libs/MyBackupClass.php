@@ -38,11 +38,21 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       return $classes;
     }
 
+    /**
+     * 
+     */
     function zip_folders() {
-      $folder=WPCONTENT_FOLDER;
-      $zipTo=BACKUP_FOLDER.'wp-content.zip';
 
-      echo $folder;
+      $folder=WPCONTENT_FOLDER;      
+      $today = date("Y-m-d");
+      // creo cartella con data odierna
+      $backup_dir = BACKUP_FOLDER.$today;
+      if (!is_dir($backup_dir)) {
+        mkdir($backup_dir, 0700);
+      }
+
+      $zipTo= $backup_dir.'/wp-content.zip';
+
       if (extension_loaded('zip') === true) {
           if (file_exists($folder) === true) {
               $zip = new ZipArchive();
@@ -100,11 +110,16 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       $db_name = DB_NAME;
       $db_user = DB_USER;
       $db_password = DB_PASSWORD;
-      $folder = BACKUP_FOLDER;
+      $today = date("Y-m-d");
+      // creo cartella con data odierna se non esiste
+      $backup_dir = BACKUP_FOLDER . $today;
+      if (!is_dir($backup_dir)) {
+        mkdir($backup_dir, 0700);
+      }
 
      try {
         $dump = new IMysqldump\Mysqldump("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
-        $dump->start("$folder/dump.sql");
+        $dump->start("$backup_dir/dump.sql");
       } catch (\Exception $e) {
           echo 'mysqldump-php error: ' . $e->getMessage();
       }
@@ -120,7 +135,7 @@ if ( !class_exists( 'MyBackupClass' ) ) {
         'Backup WP',
         'manage_options',
         'my_backup',
-        array($this,'my_backup_import_page'),
+        array($this,'my_backup_page'),
         'dashicons-backup',
         50
       );
@@ -128,24 +143,21 @@ if ( !class_exists( 'MyBackupClass' ) ) {
     }
 
     /**
-    * Pagina Admin di Import
+    * Pagina Admin Backup
     * @return [type] [description]
     */
-    function my_backup_import_page(){ ?>
+    function my_backup_page(){ ?>
       <div class="loading loading-off">Loading&#8230;</div>
       <div class="wrap">
-        <h2><span class="dashicons dashicons-feedback"></span> MyBackup</h2>
+        <h1>MyBackup</h1>
         <div class="row">
           <div class="col">
             <div id="api-response">
             </div>
           </div>
           <div class="col">
-            <!-- <p><?php echo BACKUP_FOLDER; ?></p>
-            <p><?php echo WPCONTENT_FOLDER; ?></p>
-            <p><?php echo DB_PASSWORD; ?></p>
-            <p><?php echo WPCONTENT_FOLDER; ?></p> -->
-            <p>
+            <!-- <p><?php echo date("Y-m-d"); ?></p> -->
+
               <a class="button button-primary" id="backup_wp">Backup wp-content</a>
             </p>
             <p>
