@@ -401,6 +401,7 @@
 	text-transform: uppercase;
 	padding: 11px 20px 9px;
 	height: auto;
+  min-width: 200px;
 	display: inline-block;
 	margin: 0;
 	border: 0;
