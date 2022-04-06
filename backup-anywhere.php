@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Backup Anywhere
  * Plugin URI:      PLUGIN SITE HERE
- * Description:     PLUGIN DESCRIPTION HERE
+ * Description:     Backup wpcontent e mysql customizzato dal GURU
  * Author:          YOUR NAME HERE
  * Author URI:      YOUR SITE HERE
  * Text Domain:     backup-anywhere
