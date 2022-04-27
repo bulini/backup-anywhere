@@ -7,6 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticIniteb9d1942bfb73830360123f1256c0609
 {
     public static $prefixLengthsPsr4 = array (
+        'a' => 
+        array (
+            'altayalp\\FtpClient\\' => 19,
+        ),
+        'L' => 
+        array (
+            'Lazzard\\FtpClient\\' => 18,
+        ),
         'I' => 
         array (
             'Ifsnop\\' => 7,
@@ -14,6 +22,14 @@ class ComposerStaticIniteb9d1942bfb73830360123f1256c0609
     );
 
     public static $prefixDirsPsr4 = array (
+        'altayalp\\FtpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/altayalp/ftp-client/src',
+        ),
+        'Lazzard\\FtpClient\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lazzard/php-ftp-client/src',
+        ),
         'Ifsnop\\' => 
         array (
             0 => __DIR__ . '/..' . '/ifsnop/mysqldump-php/src/Ifsnop',
@@ -30,17 +46,12 @@ class ComposerStaticIniteb9d1942bfb73830360123f1256c0609
         ),
     );
 
-    public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticIniteb9d1942bfb73830360123f1256c0609::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticIniteb9d1942bfb73830360123f1256c0609::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticIniteb9d1942bfb73830360123f1256c0609::$prefixesPsr0;
-            $loader->classMap = ComposerStaticIniteb9d1942bfb73830360123f1256c0609::$classMap;
 
         }, null, ClassLoader::class);
     }

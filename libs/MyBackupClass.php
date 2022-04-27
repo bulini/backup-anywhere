@@ -6,6 +6,7 @@ ini_set('memory_limit','2048M');
 require_once(ABSPATH.'wp-content/plugins/backup-anywhere/vendor/autoload.php');
 
 use Ifsnop\Mysqldump as IMysqldump;
+use FtpClient\FtpClient;
 
 if ( !class_exists( 'MyBackupClass' ) ) {
 
@@ -19,6 +20,7 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       add_action('admin_enqueue_scripts', array($this,'my_backup_assets'));
       add_action('wp_ajax_zip_folders', array($this,'zip_folders'));
       add_action('wp_ajax_backup_database', array($this,'backup_database'));
+      add_action('wp_ajax_upload_backup', array($this,'classic_upload'));
       add_filter( 'admin_body_class', array($this,'set_body_class'));
       add_action( 'admin_notices', array( $this, 'display_messages' ) );
       //add_action( 'admin_notices', array( $this, 'display_errors' ) );
@@ -125,6 +127,71 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       }
     }
 
+    public function classic_upload() {
+      $today = date("Y-m-d");
+      $backup_dir = BACKUP_FOLDER . $today;
+      $remote_backup = '/bk_test_giuseppe/'.$today;
+
+      $options = get_option('backup_options'); 
+      $host = $options['ftp_host'];
+      $login = $options['ftp_user'];
+      $password = $options['ftp_password'];
+      // connect and login to FTP server
+      $ftp_server = $host;
+      $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
+      $login = ftp_login($ftp_conn, $login, $password);
+
+      $file = $backup_dir.'/wp-content.zip';
+
+      // upload file
+      if (ftp_put($ftp_conn, $remote_backup.'/wp-content.zip', $file, FTP_BINARY))
+        {
+        echo "Successfully uploaded $file.";
+        }
+      else
+        {
+        echo "Error uploading $file.";
+        }
+
+      // close connection
+      ftp_close($ftp_conn);
+
+    }
+
+    /**
+     * Tento di connettermi al server WM
+     * se ok -> vai
+     * altrimenti scatta l'exception del porca madonna
+     */
+    public function upload_backup() {
+      $today = date("Y-m-d");
+      $backup_dir = BACKUP_FOLDER . $today;
+      $remote_backup = '/bk_test_giuseppe/'.$today;
+
+      $options = get_option('backup_options'); 
+      $host = $options['ftp_host'];
+      $login = $options['ftp_user'];
+      $password = $options['ftp_password'];
+
+      try {
+        $ftp = new \FtpClient\FtpClient();
+        $ftp->connect($host);
+        $ftp->login($login, $password);
+        // $files = $ftp->scanDir('/bk_test_giuseppe');
+        // print_r($files);
+        // Creates a directory
+        $ftp->mkdir("$remote_backup");
+        $ftp->putAll($backup_dir, $remote_backup, FTP_ASCII);
+        
+      } catch (\Throwable $th) {
+        //throw $th;
+        echo $th;
+      }
+
+    }
+
+
+
     /**
     * Admin Menu Screen my_backup
     * @return [type] [description]
@@ -147,26 +214,39 @@ if ( !class_exists( 'MyBackupClass' ) ) {
     * @return [type] [description]
     */
     function my_backup_page(){ ?>
-      <div class="loader loader-off">Loading&#8230;</div>
-      <div class="wrap">
-        <h1>MyBackup</h1>
-        <div class="row">
-          <div class="col">
-            <div id="api-response">
-            </div>
-          </div>
-          <div class="col">
-            <!-- <p><?php echo date("Y-m-d"); ?></p> -->
+<div class="loader loader-off">Loading&#8230;</div>
+<div class="wrap">
+	<div class="row">
+		<div class="col">
+			<div class="title">
+				<h1>Fai il Backup</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div id="api-response">
+			</div>
+		</div>
+		<div class="col">
+			<!-- <p><?php $options = get_option('backup_options'); echo $options['ftp_host']; ?></p> -->
 
-              <a class="button button-primary" id="backup_wp">Backup wp-content</a>
-            </p>
-            <p>
-              <a class="button button-primary" id="backup_db">Backup database</a>
-            </p>
-          </div>
-        </div>
-      </div>
-  <?php
+			<a class="button button-primary" id="backup_wp"><span class="dashicons dashicons-wordpress"></span> Backup
+				wp-content</a>
+			</p>
+			<p>
+				<a class="button button-primary" id="backup_db">
+					<span class="dashicons dashicons-database-import"></span> Backup database
+				</a>
+			</p>
+			<p>
+				<a class="button button-primary" id="upload_bk"><span class="dashicons dashicons-cloud-upload"></span>
+					Upload Backup</a>
+			</p>
+		</div>
+	</div>
+</div>
+<?php
     }
 
     /**
@@ -203,6 +283,33 @@ if ( !class_exists( 'MyBackupClass' ) ) {
         'my_backup-admin', // Page
         'setting_section_id' // Section
       );
+
+      add_settings_field(
+        'ftp_host', // ID
+        'Host FTP', // Title
+        array( $this, 'text_field' ), // Callback
+        'my_backup-admin', // Page
+        'setting_section_id', // Section
+        'ftp_host'
+      );
+
+      add_settings_field(
+        'ftp_user', // ID
+        'Utente FTP', // Title
+        array( $this, 'text_field' ), // Callback
+        'my_backup-admin', // Page
+        'setting_section_id', // Section
+        'ftp_user'
+      );
+
+      add_settings_field(
+        'ftp_password', // ID
+        'Password FTP', // Title
+        array( $this, 'text_field' ), // Callback
+        'my_backup-admin', // Page
+        'setting_section_id', // Section
+        'ftp_password'
+      );      
     }
 
 
@@ -222,8 +329,6 @@ if ( !class_exists( 'MyBackupClass' ) ) {
 		<div class="col-two-third float-l">
 			<form method="post" action="<?php echo admin_url('options.php'); ?>">
 				<?php
-        //self::api_import();
-        //This prints out all hidden setting fields
         settings_fields( 'my_backup_group' );
         do_settings_sections( 'my_backup-admin' );
         submit_button();
@@ -240,7 +345,6 @@ if ( !class_exists( 'MyBackupClass' ) ) {
 <?php
     }
 
-
     public function display_messages() {
 
       $screen = get_current_screen();
@@ -251,9 +355,9 @@ if ( !class_exists( 'MyBackupClass' ) ) {
 
           if ($_GET['settings-updated'] === 'true') : ?>
 
-      <div class="notice notice-success is-dismissible">
-        <p><?php _e('Impostazioni salvate con successo.', 'bbb'); ?></p>
-      </div>
+<div class="notice notice-success is-dismissible">
+	<p><?php _e('Impostazioni salvate con successo.', 'bbb'); ?></p>
+</div>
 
 <?php endif;
 
@@ -280,37 +384,16 @@ if ( !class_exists( 'MyBackupClass' ) ) {
     );
   }
 
-  /**
+    /**
   * Get the settings option array and print one of its values
   */
-  public function uid()
+  public function text_field($field)
   {
     printf(
-      '<input type="text" required id="uid" name="backup_options[uid]" value="%s" />',
-      isset( $this->options['uid'] ) ? esc_attr( $this->options['uid']) : ''
+      '<input type="text" required class="regular-text" id="'.$field.'" name="backup_options['.$field.']" value="%s" />',
+      isset( $this->options[$field] ) ? esc_attr( $this->options[$field]) : ''
     );
   }
-
-  public function lid()
-  {
-    printf(
-      '<input type="text" id="lid" name="backup_options[lid]" value="%s" />',
-      isset( $this->options['lid'] ) ? esc_attr( $this->options['lid']) : ''
-    );
-  }
-
-
-  /**
-  * Get the settings option array and print one of its values
-  */
-  public function api_key()
-  {
-    printf(
-      '<input type="text" required class="regular-text" id="api_key" name="backup_options[api_key]" value="%s" />',
-      isset( $this->options['api_key'] ) ? esc_attr( $this->options['api_key']) : ''
-    );
-  }
-
 
 }
 

@@ -1,6 +1,8 @@
 {
     "require": {
         "ifsnop/mysqldump-php": "^2.9",
-        "nicolab/php-ftp-client": "^2.0"
+        "nicolab/php-ftp-client": "^2.0",
+        "altayalp/ftp-client": "^1.0",
+        "lazzard/php-ftp-client": "^1.7"
     }
 }

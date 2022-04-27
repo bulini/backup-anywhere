@@ -1,119 +1,215 @@
-{
-    "packages": [
-        {
-            "name": "ifsnop/mysqldump-php",
-            "version": "v2.9",
-            "version_normalized": "2.9.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ifsnop/mysqldump-php.git",
-                "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ifsnop/mysqldump-php/zipball/fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
-                "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.36",
-                "squizlabs/php_codesniffer": "1.*"
-            },
-            "time": "2020-04-03T14:40:40+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Ifsnop\\": "src/Ifsnop/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Diego Torres",
-                    "homepage": "https://github.com/ifsnop",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP version of mysqldump cli that comes with MySQL",
-            "homepage": "https://github.com/ifsnop/mysqldump-php",
-            "keywords": [
-                "PHP7",
-                "database",
-                "hhvm",
-                "mariadb",
-                "mysql",
-                "mysql-backup",
-                "mysqldump",
-                "pdo",
-                "php",
-                "php5",
-                "sql"
-            ],
-            "install-path": "../ifsnop/mysqldump-php"
+[
+    {
+        "name": "altayalp/ftp-client",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/altayalp/php-ftp-client.git",
+            "reference": "7b85c3bd25d6d29dbb245abb1f9f367e47e7e07e"
         },
-        {
-            "name": "nicolab/php-ftp-client",
-            "version": "v2.0.1",
-            "version_normalized": "2.0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nicolab/php-ftp-client.git",
-                "reference": "94db75e299c7f335422e12c1aeaa0b3abf4ebd0c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nicolab/php-ftp-client/zipball/94db75e299c7f335422e12c1aeaa0b3abf4ebd0c",
-                "reference": "94db75e299c7f335422e12c1aeaa0b3abf4ebd0c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ftp": "*",
-                "php": ">=5.4"
-            },
-            "time": "2022-03-23T09:31:14+00:00",
-            "type": "library",
-            "installation-source": "dist",
-            "autoload": {
-                "psr-0": {
-                    "FtpClient": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Tallefourtane",
-                    "email": "dev@nicolab.net",
-                    "homepage": "http://nicolab.net"
-                }
-            ],
-            "description": "A flexible FTP and SSL-FTP client for PHP. This lib provides helpers easy to use to manage the remote files.",
-            "homepage": "https://github.com/Nicolab/php-ftp-client",
-            "keywords": [
-                "file",
-                "ftp",
-                "helper",
-                "lib",
-                "server",
-                "sftp",
-                "ssl",
-                "ssl-ftp"
-            ],
-            "support": {
-                "source": "https://github.com/Nicolab/php-ftp-client/tree/v2.0.1"
-            },
-            "install-path": "../nicolab/php-ftp-client"
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/altayalp/php-ftp-client/zipball/7b85c3bd25d6d29dbb245abb1f9f367e47e7e07e",
+            "reference": "7b85c3bd25d6d29dbb245abb1f9f367e47e7e07e",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ftp": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
+        },
+        "time": "2016-08-04T23:23:48+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "altayalp\\FtpClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "İzzet Ögetürk",
+                "email": "altayalp@gmail.com",
+                "homepage": "http://altayalp.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "FTP and SFTP client for Php",
+        "homepage": "https://github.com/altayalp/php-ftpclient",
+        "keywords": [
+            "ftp",
+            "ftp client",
+            "php ftp",
+            "sftp",
+            "ssh",
+            "ssh ftp"
+        ]
+    },
+    {
+        "name": "ifsnop/mysqldump-php",
+        "version": "v2.9",
+        "version_normalized": "2.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ifsnop/mysqldump-php.git",
+            "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ifsnop/mysqldump-php/zipball/fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
+            "reference": "fc9c119fe5d70af9a685cad6a8ac612fd7589e25",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.8.36",
+            "squizlabs/php_codesniffer": "1.*"
+        },
+        "time": "2020-04-03T14:40:40+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ifsnop\\": "src/Ifsnop/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Diego Torres",
+                "homepage": "https://github.com/ifsnop",
+                "role": "Developer"
+            }
+        ],
+        "description": "PHP version of mysqldump cli that comes with MySQL",
+        "homepage": "https://github.com/ifsnop/mysqldump-php",
+        "keywords": [
+            "PHP7",
+            "database",
+            "hhvm",
+            "mariadb",
+            "mysql",
+            "mysql-backup",
+            "mysqldump",
+            "pdo",
+            "php",
+            "php5",
+            "sql"
+        ]
+    },
+    {
+        "name": "lazzard/php-ftp-client",
+        "version": "v1.7.0",
+        "version_normalized": "1.7.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lazzard/php-ftp-client.git",
+            "reference": "2886a357bfcd7f7b510ee6035897e945059bf561"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lazzard/php-ftp-client/zipball/2886a357bfcd7f7b510ee6035897e945059bf561",
+            "reference": "2886a357bfcd7f7b510ee6035897e945059bf561",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ftp": "*",
+            "php": "^7.4 || ^8.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^9.0"
+        },
+        "time": "2022-03-13T23:25:53+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Lazzard\\FtpClient\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "El Amrani Chakir",
+                "email": "elamrani.sv.laza@gmail.com",
+                "homepage": "https://github.com/AmraniCh"
+            }
+        ],
+        "description": "This library provides helper classes and methods to manage your FTP files in an OOP way.",
+        "keywords": [
+            "ftp-client",
+            "ftp-library",
+            "php",
+            "php-ftp-client"
+        ]
+    },
+    {
+        "name": "nicolab/php-ftp-client",
+        "version": "v2.0.1",
+        "version_normalized": "2.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Nicolab/php-ftp-client.git",
+            "reference": "94db75e299c7f335422e12c1aeaa0b3abf4ebd0c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Nicolab/php-ftp-client/zipball/94db75e299c7f335422e12c1aeaa0b3abf4ebd0c",
+            "reference": "94db75e299c7f335422e12c1aeaa0b3abf4ebd0c",
+            "shasum": ""
+        },
+        "require": {
+            "ext-ftp": "*",
+            "php": ">=5.4"
+        },
+        "time": "2022-03-23T09:31:14+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "FtpClient": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Tallefourtane",
+                "email": "dev@nicolab.net",
+                "homepage": "http://nicolab.net"
+            }
+        ],
+        "description": "A flexible FTP and SSL-FTP client for PHP. This lib provides helpers easy to use to manage the remote files.",
+        "homepage": "https://github.com/Nicolab/php-ftp-client",
+        "keywords": [
+            "file",
+            "ftp",
+            "helper",
+            "lib",
+            "server",
+            "sftp",
+            "ssl",
+            "ssl-ftp"
+        ],
+        "support": {
+            "source": "https://github.com/Nicolab/php-ftp-client/tree/v2.0.1"
         }
-    ],
-    "dev": true,
-    "dev-package-names": []
-}
+    }
+]

@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'altayalp\\FtpClient\\' => array($vendorDir . '/altayalp/ftp-client/src'),
+    'Lazzard\\FtpClient\\' => array($vendorDir . '/lazzard/php-ftp-client/src'),
     'Ifsnop\\' => array($vendorDir . '/ifsnop/mysqldump-php/src/Ifsnop'),
 );
