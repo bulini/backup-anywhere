@@ -20,7 +20,7 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       add_action('admin_enqueue_scripts', array($this,'my_backup_assets'));
       add_action('wp_ajax_zip_folders', array($this,'zip_folders'));
       add_action('wp_ajax_backup_database', array($this,'backup_database'));
-      add_action('wp_ajax_upload_backup', array($this,'classic_upload'));
+      add_action('wp_ajax_upload_backup', array($this,'upload_backup'));
       add_filter( 'admin_body_class', array($this,'set_body_class'));
       add_action( 'admin_notices', array( $this, 'display_messages' ) );
       //add_action( 'admin_notices', array( $this, 'display_errors' ) );
@@ -129,13 +129,13 @@ if ( !class_exists( 'MyBackupClass' ) ) {
 
     public function classic_upload() {
       $today = date("Y-m-d");
-      $backup_dir = BACKUP_FOLDER . $today;
-      $remote_backup = '/bk_test_giuseppe/'.$today;
-
       $options = get_option('backup_options'); 
       $host = $options['ftp_host'];
       $login = $options['ftp_user'];
       $password = $options['ftp_password'];
+      $remote_path = $options['ftp_path'];
+      $backup_dir = BACKUP_FOLDER . $today;
+      $remote_backup =  $remote_path.'/'.$today;
       // connect and login to FTP server
       $ftp_server = $host;
       $ftp_conn = ftp_connect($ftp_server) or die("Could not connect to $ftp_server");
@@ -180,8 +180,10 @@ if ( !class_exists( 'MyBackupClass' ) ) {
         // $files = $ftp->scanDir('/bk_test_giuseppe');
         // print_r($files);
         // Creates a directory
+        // Turns passive mode on or off
+        $ftp->pasv(true);
         $ftp->mkdir("$remote_backup");
-        $ftp->putAll($backup_dir, $remote_backup, FTP_ASCII);
+        $ftp->putAll($backup_dir, $remote_backup);
         
       } catch (\Throwable $th) {
         //throw $th;
@@ -207,6 +209,8 @@ if ( !class_exists( 'MyBackupClass' ) ) {
         50
       );
       add_submenu_page( 'my_backup', 'Impostazioni Backup', 'Backup Settings', 'manage_options', 'my_backup-settings', array($this,'my_backup_settings_page'));
+      add_submenu_page( 'my_backup', 'Impostazioni Backup', 'API Settings', 'manage_options', 'my_backup-api', array($this,'my_backup_api_page'));
+
     }
 
     /**
@@ -219,7 +223,8 @@ if ( !class_exists( 'MyBackupClass' ) ) {
 	<div class="row">
 		<div class="col">
 			<div class="title">
-				<h1>Fai il Backup</h1>
+				<h1 class="wp-heading-inline">Backup Manager</h1>
+				<h3>Do what you want</h3>
 			</div>
 		</div>
 	</div>
@@ -305,11 +310,20 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       add_settings_field(
         'ftp_password', // ID
         'Password FTP', // Title
-        array( $this, 'text_field' ), // Callback
+        array( $this, 'password_field'), // Callback
         'my_backup-admin', // Page
         'setting_section_id', // Section
         'ftp_password'
-      );      
+      );
+
+      add_settings_field(
+        'ftp_path', // ID
+        'Remote FTP path', // Title
+        array( $this, 'text_field' ), // Callback
+        'my_backup-admin', // Page
+        'setting_section_id', // Section
+        'ftp_path'
+      );         
     }
 
 
@@ -384,7 +398,7 @@ if ( !class_exists( 'MyBackupClass' ) ) {
     );
   }
 
-    /**
+  /**
   * Get the settings option array and print one of its values
   */
   public function text_field($field)
@@ -394,6 +408,17 @@ if ( !class_exists( 'MyBackupClass' ) ) {
       isset( $this->options[$field] ) ? esc_attr( $this->options[$field]) : ''
     );
   }
+
+  /**
+  * Get the settings option array and print one of its values
+  */
+  public function password_field($field)
+  {
+    printf(
+      '<input type="password" required class="regular-text" id="'.$field.'" name="backup_options['.$field.']" value="%s" />',
+      isset( $this->options[$field] ) ? esc_attr( $this->options[$field]) : ''
+    );
+  }  
 
 }
 
